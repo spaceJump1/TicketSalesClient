@@ -52,6 +52,8 @@ export class AuthorizationComponent implements OnInit, OnDestroy, OnChanges {
   vipStatusSelect(): void {
   }
 
+  
+
 
   onAuth(ev: Event): void {
 
@@ -61,6 +63,9 @@ export class AuthorizationComponent implements OnInit, OnDestroy, OnChanges {
       login: this.login,
       cardNumber: this.cardNumber
     }
+
+    console.log(authUser);
+    
 
     this.http.post<{ access_token: string, id: string}>('http://localhost:3000/users/'+authUser.login, authUser).subscribe((data) => {
       authUser.id = data.id;
