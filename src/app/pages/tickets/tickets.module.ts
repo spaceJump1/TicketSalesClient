@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 
 import { TicketsRoutingModule } from './tickets-routing.module';
 import { TicketsComponent } from './tickets.component';
@@ -13,9 +13,10 @@ import { FormsModule } from '@angular/forms';
 import { BlocksStyleDirective } from 'src/app/directive/blocks-style.directive';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
-import { SettingsComponent } from '../settings/settings/settings.component';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import {OrderComponent} from "../order/order.component";
+import {TableModule} from "primeng/table";
 
 
 
@@ -27,6 +28,7 @@ import { MessageService } from 'primeng/api';
     TicketListComponent,
     AsideComponent,
     BlocksStyleDirective,
+    OrderComponent
   ],
   imports: [
     CommonModule,
@@ -36,10 +38,12 @@ import { MessageService } from 'primeng/api';
     FormsModule,
     InputTextModule,
     CalendarModule,
-    ToastModule
+    ToastModule,
+    TableModule,
   ],
   providers: [
-    MessageService
+    MessageService,
+    DatePipe
   ]
 })
 export class TicketsModule { }

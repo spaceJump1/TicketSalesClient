@@ -16,12 +16,12 @@ export class HeaderComponent implements OnInit, OnDestroy, OnChanges {
   private timerInterval: number;
   private settingsActive: boolean = false;
   public user: IUser;
-  
+
   @Input() menuType: IMenuType;
 
   constructor (
     private UserService: UserService
-  ) { 
+  ) {
 
   }
 
@@ -34,6 +34,10 @@ export class HeaderComponent implements OnInit, OnDestroy, OnChanges {
       {
         label: 'Билеты',
         routerLink:['tickets-list']
+      },
+      {
+        label: 'Заказы',
+        routerLink:['orders']
       },
       {
         label: 'Настройки',
@@ -52,12 +56,16 @@ export class HeaderComponent implements OnInit, OnDestroy, OnChanges {
         {
             label: 'Билеты',
             routerLink:['tickets-list']
-            
+
         },
+      {
+        label: 'Заказы',
+        routerLink: ['orders'],
+      },
         {
           label: 'Выйти',
           routerLink:['/auth']
-          
+
       },
     ];
 

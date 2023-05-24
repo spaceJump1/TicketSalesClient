@@ -48,7 +48,7 @@ export class TicketListComponent implements OnInit, AfterViewInit {
     //   (data) => {
     //     this.tickets = data;
     //     this.ticketCopy = [...this.tickets];
-    //     this.ticketStorage.setStorage(data);
+    //     this.filterData.type = [...this.tickets]
     //
     //     setTimeout(() => {
     //       this.blockDirective.updateItems();
