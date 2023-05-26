@@ -11,5 +11,19 @@
 
     & img {
         height: 200px;
+        object-fit: cover;
     }
+}
+
+.title-name {
+  text-align: center;
+  font-weight: bold;
+}
+
+.title-price {
+  margin-left: 10px;
+}
+
+.desc {
+  font-weight: bold;
 }

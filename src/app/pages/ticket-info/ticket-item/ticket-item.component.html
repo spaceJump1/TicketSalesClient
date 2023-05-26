@@ -6,9 +6,8 @@
     <div class="mt-4">
         <h4>Информация о туре</h4>
         <div class="mt-3">
-          <p>Название тура: </p>{{ticket?.name}}
-            {{ticket?.price}} <br>
-            {{ticket?.description}} <br>
+          <p>Название тура: {{ticket?.name}}</p>
+          <p>Цена тура: {{ticket?.price}}</p>
         </div>
     </div>
 
@@ -68,7 +67,7 @@
     </div>
 
     <div class="mt-4">
-        <h4>Похожие туры</h4>
+        <h4>Туры</h4>
         <div>
             <input #ticketSearch [(ngModel)]="ticketSearchValue" type="text" pInputText>
         </div>

@@ -13,12 +13,7 @@ export class TicketRestService {
 
   getTickets(): Observable<ITours[]> {
     return this.http.get<ITours[]>('http://localhost:3000/tours/');
-
-    // http://localhost:3000/tours/
-
-    // 'https://62b9e756ff109cd1dc9dae16.mockapi.io/apiv/v1/tours/
   }
-
 
   getRestError(): Observable<any> {
     return this.http.get<any>('https://62b9e756ff109cd1dc9dae16.mockapi.io/apiv/v1/tours/notFound');
@@ -42,13 +37,18 @@ export class TicketRestService {
         return this.http.get<INearestTour>('/assets/mocks/nearestTours3.json');
       default:
         return this.http.get<INearestTour>('/assets/mocks/nearestTours2.json');
-
-
     }
   }
 
   sendTourData(data: IOrder): Observable<any> {
     return this.http.post('http://localhost:3000/order/', data);
   }
+
+  createTour(body: any): Observable<any> {
+    return this.http.post('http://localhost:3000/tour-item', body, {headers: {
+      }
+    });
+  }
+
 
 }

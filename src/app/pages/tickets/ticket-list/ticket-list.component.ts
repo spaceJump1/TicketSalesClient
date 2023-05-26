@@ -24,24 +24,26 @@ export class TicketListComponent implements OnInit, AfterViewInit {
   searchTicketSub: Subscription;
   ticketSearchValue: string;
 
-
   filterData: {type: ITours[] | null} = {
     type: null
   }
-
 
   @ViewChild('tourWrap', {read: BlocksStyleDirective}) blockDirective: BlocksStyleDirective;
   @ViewChild('tourWrap') tourWrap: ElementRef;
 
   @ViewChild('ticketSearch') ticketSearch: ElementRef;
 
-
+  shouldGetTickets: boolean = false;
 
   constructor(private ticketService: TicketsService,
               private ticketStorage: TicketStorageService,
               private router: Router,
               private http: HttpClient
               ) { }
+
+  addNewTour() {
+    this.shouldGetTickets = true;
+  }
 
   ngOnInit(): void {
     // this.ticketService.getTickets().subscribe(
@@ -56,6 +58,14 @@ export class TicketListComponent implements OnInit, AfterViewInit {
     //     });
     //   }
     // );
+
+    // if(this.shouldGetTickets) {
+    this.ticketService.getTickets();
+    this.ticketService.tickets$.subscribe((data: ITours[]) => {
+      this.tickets = data;
+    });
+      // this.shouldGetTickets = false;
+
 
     this.ticketService.ticketUpdateSubject$.subscribe((data) => {
       this.tickets = data;

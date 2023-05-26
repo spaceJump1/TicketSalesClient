@@ -5,11 +5,13 @@ import { SettingsRoutingModule } from './settings-routing.module';
 import { SettingsComponent } from './settings/settings.component';
 import {TabMenuModule} from "primeng/tabmenu";
 import {TabPanel, TabView, TabViewModule} from "primeng/tabview";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ToastModule} from "primeng/toast";
 import {MessageService} from "primeng/api";
 import { StatisticComponent } from './statistic/statistic.component';
 import { TableModule } from 'primeng/table';
+import { TourLoaderComponent } from './tour-loader/tour-loader.component';
+import {InputTextModule} from "primeng/inputtext";
 
 
 
@@ -17,6 +19,7 @@ import { TableModule } from 'primeng/table';
   declarations: [
     SettingsComponent,
     StatisticComponent,
+    TourLoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +27,9 @@ import { TableModule } from 'primeng/table';
     TabViewModule,
     FormsModule,
     ToastModule,
-    TableModule
+    TableModule,
+    ReactiveFormsModule,
+    InputTextModule
   ],
   providers:[
     MessageService

@@ -24,7 +24,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   // settingsData: Subscription;
   // settingsDataSubject: Subscription;
-  
+
   subjectForUnsubscribe = new Subject();
 
   constructor(private observableExampleService: ObservableExampleService,
@@ -33,7 +33,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
               private messageService: MessageService) { }
 
   isTabCaching: boolean = false;
-
 
   ngOnInit(): void {
   //settingsData observable
@@ -58,7 +57,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
   //     console.log('settings data from subject', data)
   //   });
   }
-
 
   changePassword() {
     this.isTabCaching = true;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ICustomTicketData, INearestTour, ITourLocation, ITours } from 'src/app/models/tours';
-import { Observable, Subject, Subscription, map } from 'rxjs';
+import {Observable, Subject, Subscription, map, BehaviorSubject} from 'rxjs';
 import { TicketRestService } from '../rest/ticket-rest.service';
 import { ITourTypeSelect } from 'src/app/models/tours';
 import {HttpClient} from "@angular/common/http";
@@ -17,10 +17,13 @@ export class TicketsService {
   private ticketUpdateSubject = new Subject<ITours[]>();
   readonly ticketUpdateSubject$ = this.ticketUpdateSubject.asObservable();
 
-
   private ticketSubject = new Subject<ITourTypeSelect>();
   // readonly ticketType$ = this.ticketSubject.asObservable();
 
+  private ticketsSubj = new BehaviorSubject<ITours[]>([]);
+  tickets$ = this.ticketsSubj.asObservable();
+
+  private tickets: ITours[] = [];
 
   constructor(private ticketRestService: TicketRestService,
               private http: HttpClient) { }
@@ -78,14 +81,22 @@ export class TicketsService {
     return this.ticketRestService.sendTourData(data);
   }
 
-  getTickets(): void {
+  getTickets(): any {
       this.http.post<ITours[]>('http://localhost:3000/tours/', {}).subscribe((data) => {
-      this.updateTicketList(data);
-    });
+        this.updateTicketList(data);
+      });
   }
 
   getTicketsById(paramId: string): Observable<ITours> {
     return this.http.get<ITours>(`http://localhost:3000/tours/${paramId}`);
   }
+
+  createTour(body: any) {
+    return this.ticketRestService.createTour(body);
+  }
+
+  // getToursByName(name: string): Observable<ITours[]> {
+  //   return this.http.get<ITours[]>(`http://localhost:3000/ticket-item/${name}`);
+  // }
 
 }

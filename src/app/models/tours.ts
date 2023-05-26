@@ -1,7 +1,7 @@
 export interface ITours {
     name: string,
     description: string,
-    tourOperator: string,
+    operator: string,
     price: string,
     img: string,
     id: string,

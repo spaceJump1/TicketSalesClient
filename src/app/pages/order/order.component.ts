@@ -15,6 +15,7 @@ export class OrderComponent implements OnInit {
               private datePipe: DatePipe) { }
 
   cols = [
+    {field: 'name'},
     {field: '_id', header: 'ID заказа'},
     {field: 'tourId', header: 'ID тура'},
     {field: 'age', header: 'Возраст'},
